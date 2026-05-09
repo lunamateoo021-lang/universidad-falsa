@@ -1,0 +1,1339 @@
+# Código Mejorado - South Harmon Institute of Technology
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Harmon Institute of Technology</title>
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f8f3ee;
+      color:#333;
+    }
+
+    /* HEADER */
+
+    header{
+      background:linear-gradient(90deg,#6d071a,#a1122f);
+      color:white;
+      padding:30px;
+      text-align:center;
+    }
+
+    header h1{
+      font-size:45px;
+      margin-bottom:10px;
+    }
+
+    header p{
+      font-size:18px;
+    }
+
+    /* MENU */
+
+    nav{
+      position:sticky;
+      top:0;
+      background:rgba(0,29,61,0.8);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      box-shadow:0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    nav ul{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      list-style:none;
+      padding:15px;
+    }
+
+    nav ul li{
+      margin:10px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      padding:12px 22px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      background:#d4af37;
+      color:black;
+    }
+
+    /* EFECTO FONDO */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:linear-gradient(135deg,rgba(0,53,102,0.15),rgba(212,175,55,0.12));
+      z-index:-1;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      height:500px;
+      background:
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1400');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:rgba(255,255,255,0.08);
+      border-radius:50%;
+      top:-120px;
+      right:-100px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:250px;
+      height:250px;
+      background:rgba(212,175,55,0.18);
+      border-radius:50%;
+      bottom:-80px;
+      left:-80px;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      background:rgba(255,255,255,0.08);
+      padding:50px;
+      border-radius:25px;
+      backdrop-filter:blur(8px);
+      box-shadow:0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .hero-content h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    /* CONTENEDOR */
+
+    .container{
+      width:90%;
+      margin:auto;
+      padding:50px 0;
+    }
+
+    /* TARJETAS */
+
+    .card{
+      position:relative;
+      border:1px solid rgba(255,255,255,0.3);
+      background:white;
+      margin-bottom:50px;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(109,7,26,0.15);
+      transition:0.4s;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp 1s forwards;
+    }
+
+    @keyframes fadeUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent);
+      transform:translateX(-100%);
+      transition:0.8s;
+    }
+
+    .card:hover::before{
+      transform:translateX(100%);
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 30px rgba(109,7,26,0.25);
+    }
+
+    .card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      transition:0.4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card-content{
+      padding:30px;
+    }
+
+    .card h2{
+      color:#6d071a;
+      margin-bottom:20px;
+      font-size:35px;
+    }
+
+    .card p{
+      line-height:1.8;
+      margin-bottom:20px;
+      font-size:17px;
+    }
+
+    /* TABLAS */
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+      overflow-x:auto;
+      display:block;
+    }
+
+    table th{
+      background:#6d071a;
+      color:white;
+      padding:15px;
+    }
+
+    table td{
+      border:1px solid #ddd;
+      padding:15px;
+      text-align:center;
+    }
+
+    table tr:nth-child(even){
+      background:#f6ebe0;
+    }
+
+    /* BOTONES */
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 25px;
+      background:#a1122f;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:#d4af37;
+      color:black;
+      transform:scale(1.05);
+    }
+
+    /* MODAL */
+
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:2000;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      overflow:auto;
+      background:rgba(0,0,0,0.7);
+    }
+
+    .modal-content{
+      background:white;
+      margin:5% auto;
+      padding:30px;
+      width:80%;
+      border-radius:15px;
+      animation:aparecer 0.4s ease;
+    }
+
+    @keyframes aparecer{
+      from{
+        transform:scale(0.7);
+        opacity:0;
+      }
+
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    .close{
+      float:right;
+      font-size:30px;
+      cursor:pointer;
+      color:red;
+    }
+
+    .modal img{
+      width:100%;
+      max-height:350px;
+      object-fit:cover;
+      border-radius:10px;
+      margin-bottom:20px;
+    }
+
+    .modal ul{
+      margin-top:20px;
+      padding-left:20px;
+      line-height:2;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#4a0412;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:40px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero-content h2{
+        font-size:35px;
+      }
+
+      .hero-content p{
+        font-size:18px;
+      }
+
+      nav ul{
+        flex-direction:column;
+      }
+
+      .modal-content{
+        width:95%;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <h1>South Harmon Institute of Technology</h1>
+    <p>Innovación, creatividad y tecnología para las nuevas generaciones</p>
+  </header>
+
+  <!-- MENU -->
+
+  <nav>
+    <ul>
+      <li><a href="#mecanica">Mecánica</a></li>
+      <li><a href="#ingenieria">Ingeniería</a></li>
+      <li><a href="#maestria">Maestría</a></li>
+      <li><a href="#marketing">Marketing</a></li>
+      <li><a href="#comercio">Comercio</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Bienvenido a S.H.I.T.</h2>
+      <p>South Harmon Institute of Technology • Inspirado en la creatividad y el aprendizaje sin límites</p>
+
+      <a href="#mecanica" class="btn">
+        Explorar Carreras
+      </a>
+
+    </div>
+  </section>
+
+    <!-- ESTADISTICAS -->
+
+  <section class="container">
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-bottom:60px;">
+
+      <div class="card" style="padding:30px;text-align:center;">
+        <h2 style="font-size:50px;color:#a1122f;">15K+</h2>
+        <p>Estudiantes activos</p>
+      </div>
+
+      <div class="card" style="padding:30px;text-align:center;">
+        <h2 style="font-size:50px;color:#a1122f;">120+</h2>
+        <p>Docentes especializados</p>
+      </div>
+
+      <div class="card" style="padding:30px;text-align:center;">
+        <h2 style="font-size:50px;color:#a1122f;">45</h2>
+        <p>Laboratorios modernos</p>
+      </div>
+
+      <div class="card" style="padding:30px;text-align:center;">
+        <h2 style="font-size:50px;color:#a1122f;">98%</h2>
+        <p>Inserción laboral</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+
+  <div class="container">
+
+    <!-- MECANICA -->
+
+    <section class="card" id="mecanica">
+
+      <img src="https://www.senati.edu.pe/sites/default/files/2017/carrera/09/mecanica-automotriz-senati1800-x-1190_0.jpg">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-gears"></i> 1. Mecánica</h2>
+
+        <p>
+          La carrera de Mecánica forma especialistas en mantenimiento,
+          reparación y diseño de maquinaria automotriz e industrial.
+        </p>
+
+        <table>
+
+          <tr>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Campo Laboral</th>
+          </tr>
+
+          <tr>
+            <td>4 años</td>
+            <td>Presencial</td>
+            <td>Talleres e industrias</td>
+          </tr>
+
+        </table>
+
+        <button class="btn" onclick="abrirModal('modal1')">
+          Más Información
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- INGENIERIA -->
+
+    <section class="card" id="ingenieria">
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-microchip"></i> 2. Ingeniería</h2>
+
+        <p>
+          Ingeniería desarrolla habilidades en innovación,
+          construcción y tecnología.
+        </p>
+
+        <table>
+
+          <tr>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Campo Laboral</th>
+          </tr>
+
+          <tr>
+            <td>5 años</td>
+            <td>Híbrida</td>
+            <td>Empresas tecnológicas</td>
+          </tr>
+
+        </table>
+
+        <button class="btn" onclick="abrirModal('modal2')">
+          Más Información
+        </button>
+
+      </div>
+
+    </section>
+
+        <!-- MAESTRIA -->
+
+    <section class="card" id="maestria">
+
+      <img src="https://uteci.com.mx/wp-content/uploads/estudiantes-en-clase-con-profesor-entusiasta-768x432.jpg">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-graduation-cap"></i> 3. Maestría</h2>
+
+        <p>
+          Las maestrías permiten especializarse y crecer profesionalmente.
+        </p>
+
+        <table>
+
+          <tr>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Especialización</th>
+          </tr>
+
+          <tr>
+            <td>2 años</td>
+            <td>Virtual</td>
+            <td>Investigación y liderazgo</td>
+          </tr>
+
+        </table>
+
+        <button class="btn" onclick="abrirModal('modal3')">
+          Más Información
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- MARKETING -->
+
+    <section class="card" id="marketing">
+
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-bullhorn"></i> 4. Marketing</h2>
+
+        <p>
+          Marketing enseña publicidad, ventas y estrategias digitales.
+        </p>
+
+        <table>
+
+          <tr>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Campo Laboral</th>
+          </tr>
+
+          <tr>
+            <td>4 años</td>
+            <td>Online</td>
+            <td>Publicidad y redes sociales</td>
+          </tr>
+
+        </table>
+
+        <button class="btn" onclick="abrirModal('modal4')">
+          Más Información
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- COMERCIO -->
+
+    <section class="card" id="comercio">
+
+      <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-globe"></i> 5. Comercio</h2>
+
+        <p>
+          Comercio Internacional prepara profesionales para negocios globales.
+        </p>
+
+        <table>
+
+          <tr>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Campo Laboral</th>
+          </tr>
+
+          <tr>
+            <td>4 años</td>
+            <td>Presencial</td>
+            <td>Empresas internacionales</td>
+          </tr>
+
+        </table>
+
+        <button class="btn" onclick="abrirModal('modal5')">
+          Más Información
+        </button>
+
+      </div>
+
+    </section>
+
+        <!-- GALERIA -->
+
+    <section class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-camera"></i> Vida Universitaria</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200" style="height:220px;border-radius:15px;object-fit:cover;">
+
+          <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=1200" style="height:220px;border-radius:15px;object-fit:cover;">
+
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200" style="height:220px;border-radius:15px;object-fit:cover;">
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACTO -->
+
+    <section class="card">
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-envelope"></i> Contacto</h2>
+
+        <p>Email: universidad@gmail.com</p>
+        <p>Teléfono: 555-555-555</p>
+        <p>Dirección: Ciudad Universitaria</p>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODALES -->
+
+  <div id="modal1" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="cerrarModal('modal1')">&times;</span>
+
+      <img src="https://www.senati.edu.pe/sites/default/files/2017/carrera/09/mecanica-automotriz-senati1800-x-1190_0.jpg">
+
+      <h2>Mecánica</h2>
+
+      <p>
+        La carrera de Mecánica permite trabajar en talleres,
+        industrias automotrices y mantenimiento de maquinaria pesada.
+      </p>
+
+      <p>
+        Los estudiantes aprenden diagnóstico automotriz, sistemas eléctricos,
+        motores de combustión, suspensión, transmisión y tecnologías híbridas.
+        Además, cuentan con laboratorios equipados con herramientas modernas.
+      </p>
+
+      <h3>Áreas de aprendizaje</h3>
+
+      <ul>
+        <li>Motores y transmisión</li>
+        <li>Electrónica automotriz</li>
+        <li>Diagnóstico computarizado</li>
+        <li>Mantenimiento industrial</li>
+      </ul>
+
+      <h3>Beneficios</h3>
+
+      <ul>
+        <li>Laboratorios modernos</li>
+        <li>Prácticas profesionales</li>
+        <li>Bolsa laboral</li>
+        <li>Certificación internacional</li>
+      </ul>
+
+      <h3>Salidas laborales</h3>
+
+      <p>
+        Talleres automotrices, industrias manufactureras,
+        mantenimiento industrial y empresas de transporte.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div id="modal2" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="cerrarModal('modal2')">&times;</span>
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200">
+
+      <h2>Ingeniería</h2>
+
+      <p>
+        Ingeniería ofrece conocimientos avanzados en tecnología,
+        innovación y sistemas industriales.
+      </p>
+
+      <p>
+        Los estudiantes desarrollan proyectos tecnológicos, programación,
+        automatización y diseño de sistemas inteligentes para empresas modernas.
+      </p>
+
+      <h3>Áreas de aprendizaje</h3>
+
+      <ul>
+        <li>Programación y software</li>
+        <li>Robótica y automatización</li>
+        <li>Diseño industrial</li>
+        <li>Gestión tecnológica</li>
+      </ul>
+
+      <h3>Beneficios</h3>
+
+      <ul>
+        <li>Desarrollo tecnológico</li>
+        <li>Docentes especializados</li>
+        <li>Convenios empresariales</li>
+        <li>Clases híbridas</li>
+      </ul>
+
+      <h3>Salidas laborales</h3>
+
+      <p>
+        Empresas tecnológicas, desarrollo de software,
+        industrias inteligentes y proyectos de innovación.
+      </p>
+
+    </div>
+
+  </div>
+
+    <div id="modal3" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="cerrarModal('modal3')">&times;</span>
+
+      <img src="https://uteci.com.mx/wp-content/uploads/estudiantes-en-clase-con-profesor-entusiasta-768x432.jpg">
+
+      <h2>Maestría</h2>
+
+      <p>
+        Las maestrías brindan especialización profesional y oportunidades
+        de liderazgo empresarial.
+      </p>
+
+      <p>
+        El programa está enfocado en investigación avanzada,
+        liderazgo estratégico y desarrollo profesional internacional.
+      </p>
+
+      <h3>Especializaciones</h3>
+
+      <ul>
+        <li>Gestión empresarial</li>
+        <li>Innovación educativa</li>
+        <li>Investigación científica</li>
+        <li>Administración pública</li>
+      </ul>
+
+      <h3>Beneficios</h3>
+
+      <ul>
+        <li>Clases virtuales</li>
+        <li>Docentes internacionales</li>
+        <li>Investigación avanzada</li>
+        <li>Networking profesional</li>
+      </ul>
+
+      <h3>Salidas laborales</h3>
+
+      <p>
+        Consultoría, dirección empresarial,
+        investigación y liderazgo organizacional.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div id="modal4" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="cerrarModal('modal4')">&times;</span>
+
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200">
+
+      <h2>Marketing</h2>
+
+      <p>
+        Marketing digital enseña campañas publicitarias,
+        análisis de mercado y redes sociales.
+      </p>
+
+      <p>
+        Los estudiantes desarrollan estrategias creativas,
+        branding y campañas digitales orientadas al crecimiento empresarial.
+      </p>
+
+      <h3>Áreas de aprendizaje</h3>
+
+      <ul>
+        <li>Publicidad digital</li>
+        <li>Gestión de redes sociales</li>
+        <li>Branding empresarial</li>
+        <li>SEO y analítica</li>
+      </ul>
+
+      <h3>Beneficios</h3>
+
+      <ul>
+        <li>Proyectos reales</li>
+        <li>Clases online</li>
+        <li>Certificaciones digitales</li>
+        <li>Convenios publicitarios</li>
+      </ul>
+
+      <h3>Salidas laborales</h3>
+
+      <p>
+        Agencias publicitarias, marketing digital,
+        creación de contenido y análisis de mercado.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div id="modal5" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close" onclick="cerrarModal('modal5')">&times;</span>
+
+      <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200">
+
+      <h2>Comercio</h2>
+
+      <p>
+        Comercio Internacional desarrolla habilidades en importación,
+        exportación y negocios internacionales.
+      </p>
+
+      <p>
+        Los estudiantes aprenden logística global,
+        economía internacional y estrategias comerciales entre países.
+      </p>
+
+      <h3>Áreas de aprendizaje</h3>
+
+      <ul>
+        <li>Negocios globales</li>
+        <li>Logística internacional</li>
+        <li>Idiomas aplicados</li>
+        <li>Comercio exterior</li>
+      </ul>
+
+      <h3>Beneficios</h3>
+
+      <ul>
+        <li>Convenios internacionales</li>
+        <li>Intercambios estudiantiles</li>
+        <li>Simuladores de comercio</li>
+        <li>Clases bilingües</li>
+      </ul>
+
+      <h3>Salidas laborales</h3>
+
+      <p>
+        Empresas multinacionales, aduanas,
+        logística internacional y comercio exterior.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+      <!-- TESTIMONIOS -->
+
+  <section class="container">
+
+    <div class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-star"></i> Opiniones de Estudiantes</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
+
+          <div style="background:#fff7ef;padding:25px;border-radius:15px;">
+            <h3>Andrea López</h3>
+            <p>
+              “Gracias a South Harmon conseguí trabajo antes de graduarme.
+              Los laboratorios son increíbles.”
+            </p>
+          </div>
+
+          <div style="background:#fff7ef;padding:25px;border-radius:15px;">
+            <h3>Kevin Ramírez</h3>
+            <p>
+              “La experiencia universitaria aquí se siente moderna,
+              divertida y llena de creatividad.”
+            </p>
+          </div>
+
+          <div style="background:#fff7ef;padding:25px;border-radius:15px;">
+            <h3>Sofía Torres</h3>
+            <p>
+              “Los docentes realmente apoyan los proyectos tecnológicos
+              y la innovación estudiantil.”
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BECAS -->
+
+  <section class="container">
+
+    <div class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-medal"></i> Becas Disponibles</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>Beca Académica</h3>
+            <p>Hasta 75% de descuento para estudiantes destacados.</p>
+          </div>
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>Beca Deportiva</h3>
+            <p>Apoyo completo para atletas y representantes universitarios.</p>
+          </div>
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>Beca Creativa</h3>
+            <p>Dirigida a estudiantes de innovación, arte y tecnología.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EVENTOS -->
+
+  <section class="container">
+
+    <div class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-calendar"></i> Próximos Eventos</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
+
+          <div style="padding:20px;background:#fff7ef;border-radius:15px;">
+            <h3>Hackathon 2026</h3>
+            <p>Competencia de innovación tecnológica y programación.</p>
+          </div>
+
+          <div style="padding:20px;background:#fff7ef;border-radius:15px;">
+            <h3>Feria Científica</h3>
+            <p>Presentación de proyectos universitarios y experimentos.</p>
+          </div>
+
+          <div style="padding:20px;background:#fff7ef;border-radius:15px;">
+            <h3>Expo Gaming</h3>
+            <p>Torneos, desarrollo de videojuegos y cultura geek.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LABORATORIOS -->
+
+  <section class="container">
+
+    <div class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-flask"></i> Laboratorios Especializados</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>IA y Robótica</h3>
+            <p>Desarrollo de inteligencia artificial y automatización.</p>
+          </div>
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>Ciberseguridad</h3>
+            <p>Protección de sistemas, hacking ético y redes.</p>
+          </div>
+
+          <div style="padding:25px;background:#fff7ef;border-radius:15px;">
+            <h3>Biotecnología</h3>
+            <p>Investigación genética y ciencias avanzadas.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COSTOS -->
+
+  <section class="container">
+
+    <div class="card">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-money-bill"></i> Planes y Colegiaturas</h2>
+
+        <table>
+          <tr>
+            <th>Plan</th>
+            <th>Costo</th>
+            <th>Beneficios</th>
+          </tr>
+
+          <tr>
+            <td>Mensual</td>
+            <td>$350 USD</td>
+            <td>Acceso completo a clases y plataformas</td>
+          </tr>
+
+          <tr>
+            <td>Semestral</td>
+            <td>$1800 USD</td>
+            <td>Descuento del 15%</td>
+          </tr>
+
+          <tr>
+            <td>Anual</td>
+            <td>$3200 USD</td>
+            <td>Beca parcial y acceso premium</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LOGIN -->
+
+  <section class="container">
+
+    <div class="card" style="text-align:center;">
+
+      <div class="card-content">
+
+        <h2><i class="fa-solid fa-user"></i> Portal Estudiantil</h2>
+
+        <input type="email" placeholder="Correo electrónico"
+        style="padding:15px;width:300px;max-width:90%;margin:10px;border-radius:10px;border:1px solid #ccc;">
+
+        <br>
+
+        <input type="password" placeholder="Contraseña"
+        style="padding:15px;width:300px;max-width:90%;margin:10px;border-radius:10px;border:1px solid #ccc;">
+
+        <br>
+
+        <button class="btn">Iniciar Sesión</button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+    <!-- CHATBOT -->
+
+  <div id="chatbot-btn"
+  style="position:fixed;bottom:20px;right:20px;background:#6d071a;color:white;padding:18px;border-radius:50%;font-size:25px;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:3000;">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+
+  <!-- VENTANA CHATBOT -->
+
+  <div id="chatbot-window"
+  style="display:none;position:fixed;bottom:90px;right:20px;width:320px;background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.3);z-index:4000;">
+
+    <div style="background:#6d071a;color:white;padding:18px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;">
+      SHIT Assistant
+      <span id="cerrar-chat" style="cursor:pointer;font-size:20px;">&times;</span>
+    </div>
+
+    <div id="chat-messages"
+    style="height:300px;overflow-y:auto;padding:15px;background:#f8f3ee;">
+
+      <div style="background:white;padding:12px;border-radius:12px;margin-bottom:10px;">
+        👋 Hola, soy el asistente virtual de South Harmon Institute of Technology.
+      </div>
+
+    </div>
+
+    <div style="display:flex;border-top:1px solid #ddd;">
+
+      <input type="text" id="chat-input"
+      placeholder="Escribe un mensaje..."
+      style="flex:1;padding:15px;border:none;outline:none;">
+
+      <button id="send-btn"
+      style="background:#6d071a;color:white;border:none;padding:15px;cursor:pointer;">
+        Enviar
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- NEWSLETTER -->
+
+  <section class="container">
+
+    <div class="card" style="padding:40px;text-align:center;background:linear-gradient(135deg,#6d071a,#a1122f);color:white;">
+
+      <h2 style="font-size:40px;margin-bottom:20px;color:white;">
+        Únete a la nueva generación de estudiantes
+      </h2>
+
+      <p style="margin-bottom:25px;">
+        Recibe información sobre becas, eventos y nuevas carreras.
+      </p>
+
+      <input type="email" placeholder="Ingresa tu correo"
+      style="padding:15px;width:300px;max-width:90%;border:none;border-radius:10px;margin-bottom:15px;">
+
+      <br>
+
+      <button class="btn">
+        Suscribirme
+      </button>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 South Harmon Institute of Technology | Diseño Web Profesional</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // FUNCIONES MODALES
+
+    function abrirModal(id){
+      document.getElementById(id).style.display = "block";
+    }
+
+    function cerrarModal(id){
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.addEventListener('click', function(event){
+
+      let modales = document.querySelectorAll('.modal');
+
+      modales.forEach(function(modal){
+
+        if(event.target === modal){
+          modal.style.display = "none";
+        }
+
+      });
+
+    });
+
+    // CHATBOT
+
+    const chatbotBtn = document.getElementById('chatbot-btn');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const cerrarChat = document.getElementById('cerrar-chat');
+    const sendBtn = document.getElementById('send-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    // ABRIR CHAT
+
+    chatbotBtn.addEventListener('click', function(){
+      chatbotWindow.style.display = 'block';
+    });
+
+    // CERRAR CHAT
+
+    cerrarChat.addEventListener('click', function(){
+      chatbotWindow.style.display = 'none';
+    });
+
+    // ENVIAR MENSAJES
+
+    function enviarMensaje(){
+
+      let mensaje = chatInput.value.trim();
+
+      if(mensaje === '') return;
+
+      // MENSAJE USUARIO
+
+      let userMessage = document.createElement('div');
+
+      userMessage.style.background = '#6d071a';
+      userMessage.style.color = 'white';
+      userMessage.style.padding = '12px';
+      userMessage.style.borderRadius = '12px';
+      userMessage.style.marginBottom = '10px';
+      userMessage.style.textAlign = 'right';
+
+      userMessage.innerText = mensaje;
+
+      chatMessages.appendChild(userMessage);
+
+      // RESPUESTA BOT
+
+      let respuesta = '🤖 Gracias por contactar a South Harmon Institute of Technology.';
+
+      if(mensaje.toLowerCase().includes('beca')){
+        respuesta = '🎓 Tenemos becas académicas, deportivas y creativas disponibles.';
+      }
+      else if(mensaje.toLowerCase().includes('carrera')){
+        respuesta = '📚 Contamos con carreras como Ingeniería, Mecánica, Marketing y Comercio Internacional.';
+      }
+      else if(mensaje.toLowerCase().includes('precio')){
+        respuesta = '💳 Puedes revisar nuestras colegiaturas en la sección de costos.';
+      }
+      else if(mensaje.toLowerCase().includes('hola')){
+        respuesta = '👋 Hola, ¿cómo puedo ayudarte hoy?';
+      }
+
+      setTimeout(function(){
+
+        let botMessage = document.createElement('div');
+
+        botMessage.style.background = 'white';
+        botMessage.style.padding = '12px';
+        botMessage.style.borderRadius = '12px';
+        botMessage.style.marginBottom = '10px';
+
+        botMessage.innerText = respuesta;
+
+        chatMessages.appendChild(botMessage);
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      }, 500);
+
+      chatInput.value = '';
+
+    }
+
+    sendBtn.addEventListener('click', enviarMensaje);
+
+    chatInput.addEventListener('keypress', function(e){
+
+      if(e.key === 'Enter'){
+        enviarMensaje();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
